@@ -1,4 +1,6 @@
 // THIS FILE IS AUTO-GENERATED
+// Modified by mestafin
+
 package service
 
 import (
@@ -13,6 +15,11 @@ type WindowCovering struct {
 	CurrentPosition *characteristic.CurrentPosition
 	TargetPosition  *characteristic.TargetPosition
 	PositionState   *characteristic.PositionState
+	
+	// Modified by mestafin
+	HoldPosition *characteristic.HoldPosition
+	CurrentVerticalTiltAngle *characteristic.CurrentVerticalTiltAngle
+	TargetVerticalTitltAngle *characteristic.TargetVerticalTiltAngle
 }
 
 func NewWindowCovering() *WindowCovering {
@@ -27,6 +34,16 @@ func NewWindowCovering() *WindowCovering {
 
 	svc.PositionState = characteristic.NewPositionState()
 	svc.AddCharacteristic(svc.PositionState.Characteristic)
+	
+	// Modified by mestafin
+	svc.HoldPosition = characteristic.NewHoldPosition()
+	svc.AddCharacteristic(svc.HoldPosition.Characteristic)
+
+	svc.CurrentVerticalTiltAngle = characteristic.NewCurrentVerticalTiltAngle()
+	svc.AddCharacteristic(svc.CurrentVerticalTiltAngle.Characteristic)
+
+	svc.TargetVerticalTiltAngle = characteristic.NewTargetVerticalTiltAngle()
+	svc.AddCharacteristic(svc.TargetVerticalTiltAngle.Characteristic)
 
 	return &svc
 }
