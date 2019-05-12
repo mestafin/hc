@@ -19,7 +19,8 @@ type WindowCovering struct {
 	// Modified by mestafin
 	HoldPosition *characteristic.HoldPosition
 	CurrentVerticalTiltAngle *characteristic.CurrentVerticalTiltAngle
-	TargetVerticalTitltAngle *characteristic.TargetVerticalTiltAngle
+	//XX *characteristic.TargetVerticalTiltAngle
+	TargetVerticalTiltAngle *characteristic.TargetVerticalTiltAngle
 }
 
 func NewWindowCovering() *WindowCovering {
@@ -42,6 +43,7 @@ func NewWindowCovering() *WindowCovering {
 	svc.CurrentVerticalTiltAngle = characteristic.NewCurrentVerticalTiltAngle()
 	svc.AddCharacteristic(svc.CurrentVerticalTiltAngle.Characteristic)
 
+	//svc.XX = characteristic.NewTargetVerticalTiltAngle()
 	svc.TargetVerticalTiltAngle = characteristic.NewTargetVerticalTiltAngle()
 	svc.AddCharacteristic(svc.TargetVerticalTiltAngle.Characteristic)
 
