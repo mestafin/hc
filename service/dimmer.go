@@ -6,7 +6,7 @@ import (
 	"github.com/brutella/hc/characteristic"
 )
 
-const TypeDimmer = "49"
+const TypeDimmer = "249"
 
 type Dimmer struct {
 	*Service

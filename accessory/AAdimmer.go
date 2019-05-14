@@ -12,7 +12,7 @@ type Dimmer struct {
 // NewDimmer returns a dimmer which implements model.Dimmer.
 func NewDimmer(info Info) *Dimmer {
 	acc := Dimmer{}
-	acc.Accessory = New(info, TypeDimmer)
+	acc.Accessory = New(info, TypeSwitch)
 	acc.Dimmer = service.NewDimmer()
 	acc.AddService(acc.Dimmer.Service)
 
