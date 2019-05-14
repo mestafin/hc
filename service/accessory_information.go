@@ -1,4 +1,6 @@
 // THIS FILE IS AUTO-GENERATED
+// modified by mestafin
+
 package service
 
 import (
@@ -16,6 +18,10 @@ type AccessoryInformation struct {
 	Name             *characteristic.Name
 	SerialNumber     *characteristic.SerialNumber
 	FirmwareRevision *characteristic.FirmwareRevision
+	
+	// added by mestafin
+	HardwareRevision *characteristic.HardwareRevision
+	Version *characteristic.Version
 }
 
 func NewAccessoryInformation() *AccessoryInformation {
@@ -39,6 +45,14 @@ func NewAccessoryInformation() *AccessoryInformation {
 
 	svc.FirmwareRevision = characteristic.NewFirmwareRevision()
 	svc.AddCharacteristic(svc.FirmwareRevision.Characteristic)
+	
+	// added by mestafin
+	svc.HardwareRevision = characteristic.NewHardwareRevision()
+	svc.AddCharacteristic(svc.HardwareRevision.Characteristic)
+	
+	svc.Version = characteristic.NewVersion()
+	svc.AddCharacteristic(svc.Version.Characteristic)
+	
 
 	return &svc
 }

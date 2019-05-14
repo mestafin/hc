@@ -10,6 +10,8 @@ type Info struct {
 	Manufacturer     string
 	Model            string
 	FirmwareRevision string
+	HardwareRevision string
+	Version          string
 }
 
 // Accessory is a HomeKit accessory.
@@ -61,6 +63,20 @@ func New(info Info, typ AccessoryType) *Accessory {
 	} else {
 		svc.FirmwareRevision.SetValue("undefined")
 	}
+	
+	// added by mestafin
+	if version := info.HardwareRevision; len(version) > 0 {
+		svc.HardwareRevision.SetValue(version)
+	} else {
+		svc.FirmwareRevision.SetValue("undefined")
+	}
+	
+	if version := info.Version; len(version) > 0 {
+		svc.Version.SetValue(version)
+	} else {
+		svc.Version.SetValue("undefined")
+	}
+	
 
 	acc := &Accessory{
 		idCount: 1,
